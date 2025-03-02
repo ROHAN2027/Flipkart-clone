@@ -1,0 +1,563 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display', serif;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's size */
+}
+
+header {
+    background-color: white;
+    padding: 20px;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between; /* Distribute space evenly */
+    align-items: center; /* Vertically align items */
+    list-style-type: none;
+    padding: 0;
+    flex-wrap: wrap; /* Allow items to wrap if there's not enough space */
+}
+
+.logo1 {
+    display: inline-block;
+    position: relative;
+    left: 0;
+}
+
+.logo {
+    display: inline-block;
+    width: 158px;
+    flex-shrink: 0; /* Prevent the logo from shrinking */
+}
+
+.sear-btn {
+    height: 25px;
+    width: 30px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn {
+    margin: 2px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.search {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    background-color: rgba(164, 194, 194, 0.215);
+    border-radius: 10px;
+    flex-grow: 1; /* Allow the search bar to grow and fill space */
+    max-width: 40%; /* Prevent the search bar from getting too large */
+    min-width: 200px; /* Ensure the search bar doesn't shrink too much */
+}
+
+.search1 {
+    margin: 10px;
+    width: 100%; /* Take the full width of the search container */
+    background-color: transparent;
+    height: 3vh;
+    font-size: large;
+    border: none;
+}
+
+span {
+    font-size: 18px;
+    color: black;
+    cursor: pointer;
+}
+
+.search1:focus-within {
+    outline: none;
+    border: none;
+}
+
+ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: large;
+    font-weight: 800;
+    padding: 10px 15px;
+}
+
+.active a {
+    color: blue;
+}
+
+ul li a:hover {
+    color: blue;
+}
+
+ul li {
+    margin-top: 3.5px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    ul {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+    }
+
+    .search {
+        max-width: 100%; /* Allow the search bar to take the full width */
+        margin-top: 10px;
+    }
+
+    .logo {
+        margin-bottom: 15px; /* Add space below the logo */
+    }
+
+    ul li {
+        margin: 5px 0; /* Add space between stacked items */
+    }
+}
+
+@media (max-width: 480px) {
+    .search1 {
+        font-size: medium; /* Reduce font size for smaller screens */
+        height: 2.5vh;
+    }
+
+    ul li a {
+        font-size: medium; /* Adjust font size for smaller navigation links */
+    }
+}
+
+body{
+    background-color: rgb(236, 236, 236);
+    height: 100vh;
+    overflow-x: hidden;
+}
+footer{
+    display: flex;
+    background-color: white;
+    bottom: 0;
+    justify-content: center;
+}
+.cont1{
+    height: 25vh;
+    background-color: white;
+    padding: 10px;
+    border: 10px solid rgb(236, 236, 236);
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content:space-between;
+    align-items:center;
+}
+.cont1::-webkit-scrollbar {
+    display:none;
+}
+.box{
+    width: 60px;
+    height: 70px;
+    align-self: center;
+    cursor:default;
+    border-radius: 5px;
+}
+.item{
+    flex: auto;
+    position:relative;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin :10px;
+}
+.center{
+    display:inline-block;
+    justify-items: center;
+    height: 100%;
+    width: 100%;
+}
+.center:hover{
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    /* cursor: pointer; */
+    /* transition: background-color 0.3s ease;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px; */
+    color: blue;
+} 
+.item:hover{
+    margin-bottom:20px;
+    box-sizing: border-box;
+    transition: margin-bottom 0.3s ease;
+    cursor: pointer;
+}
+.material-symbols-outlined{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    left: 0;
+    color: black;
+}
+
+
+/* slider */
+.cont2{
+    position: relative;
+    width:100%;
+    display: flex;
+    box-sizing: content-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    gap:50px;
+    height: 40vh;
+}
+.arrow{
+    display:inline-block;
+    cursor: pointer;
+    position: absolute;
+    top: 33%;
+}
+.frame{
+    width:100%;
+    overflow: hidden;
+    box-shadow: -1px 1px 10px rgb(0,0,0,.5);
+}
+.left{
+    height: 10px;
+    left:0;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+}
+.right{
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    right:0;
+}
+.arrow:hover{
+    height: 20px;
+    transition: height 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.725);
+    border-radius: 5px;
+    box-shadow:0px 0px 5px rgba(0, 0, 0, 0.5);
+    color: white;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+.slider{
+    display:flex;
+    transition: all 1s ease;
+}
+.image{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+#dots{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+}
+.dot{
+    width: 20px;
+    height: 3px;
+    border-radius: 15%;
+    background-color: rgba(0, 0, 0, 0.358);
+    cursor: pointer;
+    transition:width 0.3s ease;
+}
+ .dot:hover{
+    background-color: black;
+    cursor: pointer;
+}
+
+@keyframes pulse {
+    0% {
+        width:0px;
+    }
+    100% {
+        width: 100px;
+    }
+}
+
+.dot.active {
+    background-color: black;
+    border-radius: 10%;
+    transition: border-radius 0.3 ease;
+    animation: pulse 3s ease-out forwards; /* A pulsing effect */
+    cursor: pointer;
+}
+/* this is for the selling items */
+.cont3{
+    position: relative;
+    margin: 20px;
+    background-color: white;
+    padding: 20px;
+    height: 550px;
+}
+.product-category {
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.center1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+.pre-btn{
+    transform: rotate(180deg);
+}
+.pre-btn,.nxt-btn{
+    position: absolute;
+    top:15.5%;
+    z-index: 5;
+    height: 80%;
+    width: 50px;
+    border:none;
+    background:linear-gradient(90deg, rgba(223, 230, 30, 0.132) 0%, #fff 100%);
+    cursor: pointer;
+    border-radius: 10%;
+}
+.pre-btn img,
+.nxt-btn img {
+  opacity: 0.2;
+}
+.pre-btn:hover img,
+.nxt-btn:hover img {
+  opacity: 1;
+}
+
+.nxt-btn{
+    right: 0;
+}
+.product-container {
+    padding: 30px;
+    display: flex;
+    overflow-y: auto;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+.product-container::-webkit-scrollbar {
+    display: none;
+}
+.product-card {
+    border: 2px solid black;
+    border-radius: 2.8%;
+    background-color: rgba(255, 251, 0, 0.063);
+    flex: 0 0 auto;
+    width: 250px;
+    height: 450px;
+    margin-right: 40px;
+}
+
+.product-image {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+.product-thumb {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+}
+.fav-btn{
+    position: absolute;
+    top:90%;
+    left: 90%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.fav{
+    width:20px;
+    height: 20px;
+    background: none;
+}
+
+.discount-tag {
+    position: absolute;
+    background: rgba(30, 194, 5, 0.204);
+    width: 80px;
+    height: 25px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #e71515;
+    right: 0;
+    top: 0;
+    text-transform: capitalize;
+}
+.product-info {
+    margin-left: 20px;
+    width: 100%;
+    height: 150px;
+    padding-top: 10px;
+}
+.product-brand {
+    text-transform: uppercase;
+}
+  
+.product-short-description {
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    opacity: 0.5;
+    text-transform: capitalize;
+    margin: 5px 0;
+}
+.price{
+    color: #ff7d7d;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+/* add to whish */
+.card-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    width: 80%;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    background: #fff;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+    opacity: 0;
+  }
+  
+  .product-card:hover .card-btn {
+    opacity: 1;
+  }
+  
+  .card-btn:hover {
+    background: #ff7d7d;
+    color: #fff;
+  }
+
+  /* About Page Styles */
+.about-container {
+    position: relative;
+    margin: 20px auto;
+    background-color:white;
+    max-height: 100%;
+    max-width: 990px;
+    padding: 100px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-container h1, .about-container h2 {
+    color: #333;
+    text-align: center;
+}
+
+.about-container p {
+    text-align: justify;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.team-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.team-member h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+.team-member p{
+    margin-left: 20px;
+}
+
+
+/* profile */
+.userprofile {
+    position: absolute;
+    top: 100px;
+    right: 30%;
+    z-index: 8;
+    background: white;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    width: 310px;
+    border-radius: 3%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+.userprofile.open {
+    max-height: 350px;
+}
+
+.sub-menu-link span {
+    transition: transform 0.3s ease;
+}
+.sub-menu-link:hover span{
+    transform: translateX(5px);
+}
+.sub-menu-link:hover p{
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.edit-profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* popup */
+.popup-content button:hover {
+    background-color: #45a049;
+}
