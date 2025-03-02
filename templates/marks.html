@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="login-container" style="max-width: 400px; margin: 50px auto; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <form method='post'style="display: flex; flex-direction: column; gap: 15px; ">
+        {% csrf_token %}
+        {{form}}
+        <button type='submit' style="padding: 10px; background-color: #333; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">Submit</button>
+    </form>
+        <h2>total</h2>
+        <input type="text" value={{ total }}>
+        <h2>percent</h2>
+        <input type="text" value={{ percentage }}>
+        <h2>division</h2>
+        <input type="text" value={{ div }}>
+</div>        
+
+{% endblock content %}
+
+
+

@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/utils.css' %}"> {% endcomment %}
+</head>
+
+
+<body>
+    {% if messages %}
+    <div id="success-popup" style="position: fixed; top: 0; left: 50%; transform: translateX(-50%); width: 50%; background-color: rgb(255, 255, 255); border: 2px solid black; border-radius: 20px; z-index: 1000; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        {% for message in messages %}
+            <div style="margin-bottom: 10px;">
+                <p style="color: green; font-size: 16px; margin-top:3px ;">{{ message }}</p>
+                <button onclick="closePopup()" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">Close</button>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+    <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <div class='logo'>
+                        <img src="{% static 'img/image.png' %}" alt="Logo" class="logo1">
+                    </div>
+                    <div class="search">
+                        <span class="btn">
+                            <img src="{% static 'img/search (2).png' %}" class="sear-btn">
+                        </span>
+                        <input type="text" placeholder="Search for item" class="search1">
+                    </div>
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.profile.profile_pic %}
+                        <li class= {% if request.path == '/profile/' %} active {% endif %} ><img src="{{ request.user.profile.profile_pic.url }}"style="height:40px;width:40px;cursor: pointer;border-radius :50%" onclick="togglemenu()"></li>
+                        {% else %}
+                        <li class= {% if request.path == '/profile/' %} active {% endif %} ><img src="{% static 'img/profile.jpg' %}"style="height:40px;width:40px;cursor: pointer;border-radius :50%" onclick="togglemenu()"></li>
+                        {% endif %}
+
+                    <div class="userprofile" id="submenu">
+                    <div class="dropdown"style="display:flex;align-items:center">
+                        {% if request.user.profile.profile_pic %}
+                        <img src="{{ request.user.profile.profile_pic.url }}"style="height:50px;width:50px;margin:10px;border-radius :50%">
+                        {% else %}
+                        <img src="{% static 'img/profile.jpg' %}"style="height:50px;width:50px;margin:10px;border-radius :50%">
+                        {% endif %}
+                            <h3>{{ request.user.username }}</h3>
+                        </div>
+                        <hr>
+                            <div class="dropdown-content">
+                                <a href='/profile/'class="sub-menu-link"  style="display:flex; align-items:center;justify-content: space-between;    color: black;
+    text-decoration: none;
+    font-size: large;
+    font-weight: 200;">
+                                    <img src="{% static 'img/images/profile.png' %}" style="margin-right:15px;margin-left:10px;border-radius:50%;padding:8px; background-color:rgba(128, 128, 128, 0.10);width:40px;margin-bottom:6px;margin-top:6px">
+                                    <p style="width :100%;">Edit Profile</p>
+                                    <span >></span>
+                                </a>
+                                <a href="#" class="sub-menu-link" style="display:flex; align-items:center;justify-content: space-between;    color: black;
+    text-decoration: none;
+    font-size: large;
+    font-weight: 200;">
+                                    <img src="{% static 'img/images/setting.png' %}"style="margin-right:15px;margin-left:10px;border-radius:50%;padding:8px; background-color:rgba(128, 128, 128, 0.10);width:40px;margin-bottom:6px">
+                                    <p style="width :100%">Settings & Privacy</p>
+                                    <span>></span>
+                                </a>
+                                <a href="#" class="sub-menu-link" style="display:flex; align-items:center;justify-content: space-between;    color: black;
+    text-decoration: none;
+    font-size: large;
+    font-weight: 200;">
+                                    <img src="{% static 'img/images/help.png' %}"style="margin-right:15px;margin-left:10px;border-radius:50%;padding:6px; background-color:rgba(128, 128, 128, 0.10);width:40px;margin-bottom:6px">
+                                    <p style="width :100%">Help & Support</p>
+                                    <span>></span>
+                                </a>
+                                <a href="/logout" class="sub-menu-link {% if request.path == '/logout/' %} active {% endif %}"" style="display:flex; align-items:center;justify-content: space-between;    color: black;
+    text-decoration: none;
+    font-size: large;
+    font-weight: 200;">
+                                    <img src="{% static 'img/images/logout.png' %}"style="margin-right:15px;margin-left:10px;border-radius:50%;padding:8px; background-color:rgba(128, 128, 128, 0.10);width:40px;margin-bottom:6px">
+                                    <p style="width :100%">Logout</p>
+                                    <span>></span>
+                                </a>
+                            </div>
+                    </div>
+                    {% comment %} <li class= {% if request.path == '/logout/' %} active {% endif %} ><a href="/logout">logout</a></li> {% endcomment %}
+                    {% else %}
+                    <li class= {% if request.path == '/login/' %} active {% endif %} ><a href="/login">login</a></li>
+                    {% endif %}
+                    <li class= {% if request.path == '/' %} active {% endif %} ><a href="/">Home</a></li>
+                    <li class= {% if request.path == '/about/' %} active {% endif %}><a href="/about">About</a></li>
+                    <li class= {% if request.path == '/services/' %} active {% endif %}><a href="/services">Services</a></li>
+                    <li class= {% if request.path == '/contact/' %} active {% endif %}><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    {% block content %}
+    {% endblock content %}
+
+    <footer>
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+
+        function togglemenu() {
+            var submenu = document.getElementById('submenu');
+            submenu.classList.toggle('open');
+        }
+    document.addEventListener('DOMContentLoaded', function() {
+        var popup = document.getElementById('success-popup');
+        if (popup) {
+            popup.style.display = 'block';
+        }
+    });
+
+    function closePopup() {
+        var popup = document.getElementById('success-popup');
+        if (popup) {
+            popup.style.display = 'none';
+        }
+    }
+
+    </script>
+</body>
+
+</html>

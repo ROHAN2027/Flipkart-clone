@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'css/utils.css' %}">
+</head>
+<body>
+{% if messages %}
+    <div id="success-popup" style="position: fixed; top: 0; left: 50%; transform: translateX(-50%); width: 50%; background-color: rgb(255, 255, 255); border: 2px solid black; border-radius: 20px; z-index: 1000; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        {% for message in messages %}
+            <div style="margin-bottom: 10px;">
+                <p style="color: green; font-size: 16px; margin-top:3px ;">{{ message }}</p>
+                <button onclick="closePopup()" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">Close</button>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+    <div class="profile-container">
+        <div class="header">
+            <a href="/" class="btn">Home</a>
+            <a href="{% url 'logout' %}" class="btn">Logout</a>
+        </div>
+            <h2 class="profile-title">Welcome ! {{request.user.username}}</h2>
+    
+        <form method="post" enctype="multipart/form-data" class="profile-form">
+            {% csrf_token %}
+            <div class="profile-content">
+                <!-- Left Section: Input Fields -->
+                <div class="left-section">
+                    <div class="form-group">
+                        <label for="id_name">Name:</label>
+                        {{form.name.errors}}
+                        {{ form.name }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_bio">Bio:</label>
+                        {{ form.bio }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_dob">Date of Birth:</label>
+                        {{form.dob.errors}}
+                        {{ form.dob }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_country">Country of Origin:</label>
+                        <select name="country" id="id_country">
+                            <option value="India">India</option>
+                            <option value="USA">USA</option>
+                            <option value="UK">UK</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Australia">Australia</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_pincode">Pincode:</label>
+                        {{ form.pincode }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_address">Address:</label>
+                        {{ form.address }}
+                    </div>
+                    <button type="submit" class="btn update-btn">Update Profile</button>
+                </div>
+    
+                <!-- Right Section: Profile Picture -->
+                <div class="profile-picture-section">
+                    <div class="profile-picture-circle">
+                        {% if request.user.profile.profile_pic %}
+                            <img src="{{ request.user.profile.profile_pic.url }}" alt="Profile1111 Picture" class="profile-pic">
+                        {% else %}
+                            <img src="{% static 'img/profile.jpg' %}" alt="Default Profile Picture" class="profile-pic">
+                        {% endif %}
+                    </div>
+                    <label for="id_profile_pic" class="change-pic-btn">Change Profile Picture</label>
+                    {{ form.profile_pic }}
+                </div>
+            </div>
+        </form>
+    </div> 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var popup = document.getElementById('success-popup');
+            if (popup) {
+                popup.style.display = 'block';
+            }
+        });
+    
+        function closePopup() {
+            var popup = document.getElementById('success-popup');
+            if (popup) {
+                popup.style.display = 'none';
+            }
+        }
+    </script>
+    
+</body>
+</html>

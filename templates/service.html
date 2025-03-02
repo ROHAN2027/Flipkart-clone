@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="services-container" style="max-width: 1200px; margin: 20px auto; padding: 20px; background: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px;">
+        <h1 style="text-align: center; color: #333;">Our Services</h1>
+        <p style="text-align: center; margin-bottom: 30px; color: #555;">Explore the range of services we offer to meet your needs.</p>
+
+        <div class="service-cards" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <!-- Service 1 -->
+            <div class="service-card" style="flex: 1 1 300px; padding: 20px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; text-align: center;">
+                <img src="{% static 'img/iimag1.png' %}" alt="Service 1" style="width: 80px; margin-bottom: 10px;">
+                <h2 style="color: #333;">Web Development</h2>
+                <p style="color: #555;">We design and develop modern, responsive websites tailored to your business needs.</p>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card" style="flex: 1 1 300px; padding: 20px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; text-align: center;">
+                <img src="{% static 'img/iimag2.png' %}" alt="Service 2" style="width: 80px; margin-bottom: 10px;">
+                <h2 style="color: #333;">Digital Marketing</h2>
+                <p style="color: #555;">Boost your business online with our expert SEO, social media, and marketing solutions.</p>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card" style="flex: 1 1 300px; padding: 20px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; text-align: center;">
+                <img src="{% static 'img/iimag3.png' %}" alt="Service 3" style="width: 80px; margin-bottom: 10px;">
+                <h2 style="color: #333;">Graphic Design</h2>
+                <p style="color: #555;">Create stunning visuals with our professional graphic design services for your brand.</p>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card" style="flex: 1 1 300px; padding: 20px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; text-align: center;">
+                <img src="{% static 'img/iimag4.png' %}" alt="Service 4" style="width: 80px; margin-bottom: 10px;">
+                <h2 style="color: #333;">Content Writing</h2>
+                <p style="color: #555;">Engage your audience with high-quality, SEO-optimized content tailored to your needs.</p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

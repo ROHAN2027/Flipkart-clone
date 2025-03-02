@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main>
+        <div class="cont1">
+            <div class="item">
+                <img src="static/img/groc.webp" class="box">
+                <span class="center">Grocery Items</span>
+            </div>
+            <div class="item">
+                <img src="static/img/mobile.webp" class="box">
+                <span class="center">Mobile</span>
+            </div>
+            <div class="item">
+                <img src="static/img/flight.webp" class="box">
+                <span class="center">Flight booking</span>
+            </div>
+            <div class="item">
+                <img src="static/img/appliances.webp" class="box">
+                <span class="center">Appliances</span>
+            </div>
+            <div class="item">
+                <img src="static/img/bike.jpeg" class="box">
+                <span class="center">Two wheeler</span>
+            </div>
+            <div class="item">
+                <img src="static/img/teddy.jpeg" class="box">
+                <span class="center"> Beauty & Teddy bear</span>
+            </div>
+            <div class="item">
+                <img src="static/img/electronic.jpeg" class="box">
+                <span class="center">Electronics</span>
+            </div>
+            <div class="item">
+                <img src="static/img/furniture.jpeg" class="box">
+                <span class="center">Furniture</span>
+            </div>
+        </div>
+        <div class="cont2">
+            <img src="static/img/larraw.png" class="arrow left">
+            <div class="frame">
+                <div class="slider">
+                    <img src="static/img/img1.webp" class="image">
+                    <img src="static/img/img2.webp" class="image">
+                    <img src="static/img/img3.webp" class="image">
+                    <img src="static/img/img4.webp" class="image">
+                    <img src="static/img/img5.webp" class="image">
+                </div>
+            </div>
+            <img src="static/img/rarrow.png" class="arrow right">
+            <div class="dots" id="dots"></div>
+
+        </div>
+        <div class="cont3">
+            <h2 class="product-category">Best of Electronics</h2>
+            <button class="pre-btn"><img src="static/img/arrow.png" alt=""></button>
+            <button class="nxt-btn"><img src="static/img/arrow.png" alt=""></button>
+                <div class="product-container">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="discount-tag">50% off</span>
+                            <img src="static/img/iimag1.png" class="product-thumb">
+                            <button class="fav-btn"> 
+                                <img  class="fav"  src="{% static 'img/favorite_24dp_000000_FILL0_wght400_GRAD0_opsz24.png' %}"  data-active-src="{% static 'img/favorite_24dp_8B1A10_FILL0_wght700_GRAD200_opsz20.png' %}"  data-inactive-src="{% static 'img/favorite_24dp_000000_FILL0_wght400_GRAD0_opsz24.png' %}"  alt="Favorite"> 
+                            </button> 
+                            <button class="card-btn">add to wishlist</button>
+                        </div>
+                        <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">From ₹ 999 </span>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="discount-tag">50% off</span>
+                            <img src="static/img/iimag2.png" class="product-thumb">
+                            <button class="fav-btn"> 
+                                <img  class="fav"  src="{% static 'img/favorite_24dp_000000_FILL0_wght400_GRAD0_opsz24.png' %}"  data-active-src="{% static 'img/favorite_24dp_8B1A10_FILL0_wght700_GRAD200_opsz20.png' %}"  data-inactive-src="{% static 'img/favorite_24dp_000000_FILL0_wght400_GRAD0_opsz24.png' %}"  alt="Favorite"> 
+                            </button> 
+                            <button class="card-btn">add to wishlist</button>
+                        </div>
+                        <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">From ₹ 999</span>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="discount-tag">50% off</span>
+                            <img src="static/img/iimag3.png" class="product-thumb">
+                            <button class="fav-btn"> 
+                                <img  class="fav"  src="{% static 'img/favorite_24dp_000000_FILL0_wght400_GRAD0_opsz24.png' %}"  data-active-src="{% static 'img/favorite_24dp_8B1A10_FILL0_wght700_GRAD200_opsz20.png' %}"  data-inactive-src="{% static 'img/favorite_24dp_000000_FILL0_wght400_GRAD0_opsz24.png' %}"  alt="Favorite"> 
+                            </button> 
+                            <button class="card-btn">add to wishlist</button>
+                        </div>
+                        <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">From ₹ 999</span>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="discount-tag">50% off</span>
+                            <img src="static/img/iimag4.png" class="product-thumb">
+                            <button class="fav-btn"> 
+                                <img  class="fav"  src="{% static 'img/favorite_24dp_000000_FILL0_wght400_GRAD0_opsz24.png' %}"  data-active-src="{% static 'img/favorite_24dp_8B1A10_FILL0_wght700_GRAD200_opsz20.png' %}"  data-inactive-src="{% static 'img/favorite_24dp_000000_FILL0_wght400_GRAD0_opsz24.png' %}"  alt="Favorite"> 
+                            </button> 
+                            <button class="card-btn">add to wishlist</button>
+                        </div>
+                        <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">From ₹ 999</span>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="discount-tag">50% off</span>
+                            <img src="static/img/iimag5.png" class="product-thumb">
+                            <button class="fav-btn"> 
+                                <img  class="fav"  src="{% static 'img/favorite_24dp_000000_FILL0_wght400_GRAD0_opsz24.png' %}"  data-active-src="{% static 'img/favorite_24dp_8B1A10_FILL0_wght700_GRAD200_opsz20.png' %}"  data-inactive-src="{% static 'img/favorite_24dp_000000_FILL0_wght400_GRAD0_opsz24.png' %}"  alt="Favorite"> 
+                            </button> 
+                            <button class="card-btn">add to wishlist</button>
+                        </div>
+                        <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">From ₹ 999</span>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="discount-tag">50% off</span>
+                            <img src="static/img/iimag6.png" class="product-thumb">
+                            <button class="fav-btn"> 
+                                <img  class="fav"  src="{% static 'img/favorite_24dp_000000_FILL0_wght400_GRAD0_opsz24.png' %}"  data-active-src="{% static 'img/favorite_24dp_8B1A10_FILL0_wght700_GRAD200_opsz20.png' %}"  data-inactive-src="{% static 'img/favorite_24dp_000000_FILL0_wght400_GRAD0_opsz24.png' %}"  alt="Favorite"> 
+                            </button> 
+                            <button class="card-btn">add to wishlist</button>
+                        </div>
+                        <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">From ₹ 999</span>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="discount-tag">50% off</span>
+                            <img src="static/img/iimag7.png" class="product-thumb">
+                            <button class="fav-btn"> 
+                                <img  class="fav"  src="{% static 'img/favorite_24dp_000000_FILL0_wght400_GRAD0_opsz24.png' %}"  data-active-src="{% static 'img/favorite_24dp_8B1A10_FILL0_wght700_GRAD200_opsz20.png' %}"  data-inactive-src="{% static 'img/favorite_24dp_000000_FILL0_wght400_GRAD0_opsz24.png' %}"  alt="Favorite"> 
+                            </button> 
+                            <button class="card-btn">add to wishlist</button>
+                        </div>
+                        <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">From ₹ 999</span>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </main> 
+
+{% endblock content %}
+
+
+    

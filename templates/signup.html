@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="login-container" style="max-width: 400px; margin: 50px auto; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    {% if success %}
+    <div class="success" style="color: green;">{{ success }}</div>
+    {% else %}
+    <h2 style="text-align: center; color: #333; margin-bottom: 20px;">Signup to Your Account</h2>
+
+    <form method='post' action="{% url "signup" %}" style="display: flex; flex-direction: column; gap: 15px;">
+        {% csrf_token %} 
+        <div class="form-group">
+            <label for="username">Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            {{ form.username }}
+        </div>
+        <div class="form-group">
+            <label for="password">Password :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            {{ form.password1 }}
+        </div>
+        <div class="form-group">
+            <label for="password">Re-enter Password :</label>
+            {{ form.password2 }}
+        </div>
+        <div class="form-group">
+            <label for="email">Email :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            {{ form.email }}
+        </div>
+
+        {% if error %}
+            <div class="error" style="color: red;">{{ error }}</div>
+        {% endif %}
+
+       
+        <button type="submit" style="padding: 10px; background-color: #333; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+            signup
+        </button>
+    </form>
+    {% endif %}
+</div>
+{% endblock content %}
