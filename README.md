@@ -1,6 +1,6 @@
 # Django Web Application
 
-This is a Django-based web application that includes user authentication, profile management, and a contact form. The project is structured with two main apps: `info` and `profileapp`.
+This is a Django-based web application that includes user authentication, profile management, and a contact form. The project is structured with two main app : `info` and `profileapp`.
 
 
 ## Installation
